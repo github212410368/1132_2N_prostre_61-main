@@ -33,6 +33,13 @@ model Product {
   Review      Review[]
 }
 
+model File {
+  id   String @id @default(cuid())
+  url  String
+  key  String @unique // UploadThing 文件的唯一标识
+  name String
+}
+
 model User {
   id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name          String    @default("NO_NAME")
